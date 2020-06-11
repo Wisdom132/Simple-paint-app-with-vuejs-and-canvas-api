@@ -23,12 +23,13 @@ var app = new Vue({
 
       this.ctx.lineWidth = 10;
       this.ctx.lineCap ="round"
-      
-     this.ctx.lineTo(e.clientX,e.clientY)
+     
+     let rect = this.canvas.getBoundingClientRect();
+     this.ctx.lineTo(e.clientX-rect.left,e.clientY-rect.top)
      this.ctx.stroke()
 
      this.ctx.beginPath()
-     this.ctx.moveTo(e.clientX,e.clientY)
+     this.ctx.moveTo(e.clientX-rect.left,e.clientY-rect.top)
 
      
     }
